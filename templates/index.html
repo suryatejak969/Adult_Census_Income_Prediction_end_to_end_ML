@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <title>Adult Census Income Predictor</title>
+</head>
+
+<body class="bg-dark">
+    <h1>Hello, world!</h1>
+    <div class="container">
+        <div class="row">
+            <div class="card" style="width: 100%; height: 100%; margin-top: 50px;">
+                <div class="card-header" style="text-align: center;">
+                    <h1>Please fill below details to get your income predicted</h1>
+
+
+                </div>
+                <div class="card-body">
+                    <form method="post" action='/predict' accept-charset="utf-8">
+                        <div class="row">
+                            <div class="col-md-6 form-group " style="text-align: center;">
+                              <label><b>Enter Your Age:</b></label>
+                              <input type="text" class="form-control" id="age" name="age" placeholder="Enter Your Age" required="required"/>
+
+                            </div>
+
+                            <div class="col-md-6 form-group " style="text-align: center;">
+                                <label><b>Select your Education:</b></label>
+                                <select class="selectpicker form-control" id="education" name="education" required='1'>
+
+                                    <option value="Primary-School">1st-4th</option>
+                                    <option value="Primary-School">5th-6th</option>
+                                    <option value="High-School">7th-8th</option>
+                                    <option value="High-School">9th</option>
+                                    <option value="High-School">10th</option>
+                                    <option value="High-School">11th</option>
+                                    <option value="12High-Schoolth">12th</option>
+                                    <option value="Associate">Associate</option>
+                                    <option value="Some-college">Some-college</option>
+                                    <option value="Bachelors">Bachelors</option>
+                                    <option value="Masters">Masters</option>
+                                    <option value="Prof-school">Prof-school</option>
+                                    <option value="Doctorate">Doctorate</option>
+                                    <option value="HS-grad">HS-grad</option>
+
+                                </select>
+
+                            </div>
+
+                            <div class="col-md-6 form-group " style="text-align: center;">
+                                <label><b>Marital-Status:</b></label>
+                                <select class="selectpicker form-control" id="marital-Status" name="marital-Status" required='1'>
+
+                                    <option value="Never-married">Never-married</option>
+                                    <option value="Divorced">Divorced</option>
+                                    <option value="Widowed">Widowed</option>
+                                    <option value="Married">Married</option>
+
+                                </select>
+
+                            </div>
+
+                            <div class="col-md-6 form-group " style="text-align: center;">
+                                <label><b>Gender:</b></label>
+                                <select class="selectpicker form-control" id="gender" name="gender" required='1'>
+
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+
+                                </select>
+
+                            </div>
+
+                            <div class="col-md-6 form-group " style="text-align: center;">
+                                <label><b>Country:</b></label>
+                                <select class="selectpicker form-control" id="country" name="country" required='1'>
+
+                                    <option value="United-States">United-States</option>
+                                    <option value="Mexico">Mexico</option>
+                                    <option value="Philippines">Philippines</option>
+                                    <option value="Germany">Germany</option>
+                                    <option value="India">India</option>
+                                    <option value="Others">Others</option>
+
+                                </select>
+
+                            </div>
+
+                            <div class="col-md-6 form-group " style="text-align: center;">
+                                <label><b>Enter Hours per Week:</b></label>
+                                <input type="text" class="form-control" id="hoursPerWeek" name="hoursPerWeek" placeholder="Enter Hours per Week" required="required"/>
+
+                            </div>
+
+                            <div class="col-md-6 form-group " style="text-align: center;">
+                                <label><b>Enter your Gain or Loss:</b></label>
+                                <input type="text" class="form-control" id="gainOrLoss" name="gainOrLoss"
+                                    placeholder="Enter the amount you gained or lossed" required="required"/>
+
+                            </div>
+
+                            <div class="col-md-6 form-group " style="text-align: center;">
+                                <label><b>Select your Work-Class:</b></label>
+                                <select class="selectpicker form-control" id="workClass" name="workClass" required='1'>
+
+                                    <option value="Private">Private</option>
+                                    <option value="Self-emp-not-inc">Self-emp-not-inc</option>
+                                    <option value="Local-gov">Local-gov</option>
+                                    <option value="State-gov">State-gov</option>
+                                    <option value="Self-emp-inc">Self-emp-inc</option>
+                                    <option value="Federal-gov">Federal-gov</option>
+                                    <option value="No-Income">No-Income</option>
+
+                                </select>
+
+                            </div>
+
+                            <div class="col-md-6 form-group " style="text-align: center;">
+                                <label><b>Select your Occupation:</b></label>
+                                <select class="selectpicker form-control" id="occupation" name="occupation" required='1'>
+
+                                    <option value="Adm-clerical">Adm-clerical</option>
+                                    <option value="Exec-managerial">Exec-managerial</option>
+                                    <option value="Handlers-cleaners">Prof-specialty</option>
+                                    <option value="Prof-specialty">Prof-specialty</option>
+                                    <option value="Other-service">Other-service</option>
+                                    <option value="Sales">Sales</option>
+                                    <option value="Craft-repair">Craft-repair</option>
+                                    <option value="Transport-moving">Transport-moving</option>
+                                    <option value="Farming-fishing">Farming-fishing</option>
+                                    <option value="Machine-op-inspct">Machine-op-inspct</option>
+                                    <option value="Tech-support">Tech-support</option>
+                                    <option value="Private">Private</option>
+                                    <option value="Protective-serv">Protective-serv</option>
+                                    <option value="Armed-Forces">Armed-Forces</option>
+                                    <option value="Priv-house-serv">Priv-house-serv</option>
+
+                                </select>
+
+                            </div>
+
+                            <div class="col-md-6 form-group " style="text-align: center;">
+                                <label><b>Select your Race:</b></label>
+                                <select class="selectpicker form-control" id="race" name="race" required='1'>
+
+                                    <option value="White">White</option>
+                                    <option value="Black">Black</option>
+                                    <option value="Asian-Pac-Islander">Asian-Pac-Islander</option>
+                                    <option value="Amer-Indian-Eskimo">Amer-Indian-Eskimo</option>
+                                    <option value="Other">Other</option>
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="col-md-12 form-group">
+                                <!-- <button class="btn btn-primary form control" onclick="send_data()">Predict Price</button> -->
+                                <button class="w-100 btn btn-lg btn-primary"  type="submit"> Predict</button>
+                                <!--button class="w-100 btn btn-lg btn-primary" type="submit">Submit</button> -->
+                            </div>
+
+
+
+
+                        </div>
+
+                    </form>
+
+
+
+                    <div class="col-md-12" style="text-align: center;">
+                        <h3>{{ prediction_text }}</h3>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
